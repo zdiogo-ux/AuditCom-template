@@ -9,19 +9,81 @@
 
 </head>
 <body>
-    <!-- data-bind-global="count" : Affiche le nombre total de rapports (métadonnées globales) -->
-    <h1 data-bind-global="count"></h1>
-    
-    <!-- id="teamList" : Conteneur où seront ajoutés dynamiquement les éléments de l'équipe. Le nom de cet ID ne doit pas être modifié. -->
-    <section id="teamList">
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                Votre club est-il au niveau? </h1>
+            <h2>
+                L'analyse digitale de 28 clubs de foot enfin dévoilée.</h2>
+            <p>
+                De l’invisibilité numérique au manque d’ergonomie : téléchargez notre rapport compilé pour identifier et corriger les angles morts de votre club.
+            </p>
+            <a href="#" class="hero-button">
+                Consulter l’étude !
+            </a>
+        </div>
     </section>
 
-    <!-- id="messageContainer" : Conteneur pour afficher les messages de succès ou d'erreur. Le nom de cet ID ne doit pas être modifié. -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <a href="#" class="hero-button hero-button-large cta-button">
+                Accéder à l’étude gratuite !
+            </a>
+        </div>
+    </section>
+
+    <section class="stats-section" id="stats">
+        <div class="stats-header">
+            <h2 class="stats-title">Statistiques</h2>
+        </div>
+
+        <div class="stats-grid">
+            <article class="stat-card">
+                <img src="Statistique/stat1.png" alt="82% des clubs sont présents en ligne" class="stat-image">
+                <div class="stat-text">
+                    <div class="stat-number">82<span class="stat-unit">%</span></div>
+                    <div class="stat-label">des clubs sont présents en ligne</div>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <img src="Statistique/stat2.png" alt="71% utilisent le digital uniquement pour les matchs" class="stat-image">
+                <div class="stat-text">
+                    <div class="stat-number">71<span class="stat-unit">%</span></div>
+                    <div class="stat-label">utilisent le digital uniquement pour les matchs</div>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <img src="Statistique/stat3.png" alt="86% ne mesurent pas leur performance digitale" class="stat-image">
+                <div class="stat-text">
+                    <div class="stat-number">86<span class="stat-unit">%</span></div>
+                    <div class="stat-label">ne mesurent pas leur performance digitale</div>
+                </div>
+            </article>
+
+            <article class="stat-card">
+                <img src="Statistique/stat4.png" alt="×3 d’engagement pour les clubs les plus actifs" class="stat-image">
+                <div class="stat-text">
+                    <div class="stat-number">×3</div>
+                    <div class="stat-label">fois plus d’engagement pour les clubs les plus actifs</div>
+                </div>
+            </article>
+        </div>
+        <div class="stats-footer">
+            <a href="#" class="stats-link">En savoir plus</a>
+        </div>
+    </section>
+
+    <section>
+        <h1>Club</h1>
+    </section>
+
+    <!-- data-bind-global="count" : Affiche le nombre total de rapports (métadonnées globales) -->
+    <h1 data-bind-global="count" style="display:none;"></h1>
+
+    <section id="teamList"></section>
     <div id="messageContainer"></div>
-
-    <!-- id="downloadForm" : Formulaire pour télécharger le PDF. Le nom de cet ID ne doit pas être modifié. -->
-    <form id="downloadForm">
-    </form>
-
+    <form id="downloadForm"></form>
 </body>
 </html>
