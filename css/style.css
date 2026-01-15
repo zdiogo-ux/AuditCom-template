@@ -76,27 +76,6 @@ img {
 }
 
 /* =========================
-   CTA SECTION
-   ========================= */
-.cta-section {
-  width: 100%;
-  background-color: #ffffff;
-  padding: 5rem 0;
-}
-
-.cta-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.cta-button {
-  padding: 1.4rem 3.2rem;
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
-/* =========================
    STATS SECTION
    ========================= */
 .stats-section {
@@ -567,22 +546,6 @@ img {
   .hero-button {
     width: 100%;
     text-align: center;
-  }
-
-  /* CTA */
-  .cta-section {
-    padding: 46px 0;
-  }
-
-  .cta-container {
-    padding: 0 18px;
-  }
-
-  .cta-button {
-    width: 100%;
-    text-align: center;
-    padding: 1.1rem 1.2rem;
-    font-size: 1.05rem;
   }
 
   /* Stats */
