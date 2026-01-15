@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>AuditCom</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="src/main.js" type="module" defer></script>
 
 </head>
+
 <body>
     <section class="hero">
         <div class="hero-content">
@@ -16,9 +18,10 @@
             <h2>
                 L'analyse digitale de 28 clubs de foot enfin dévoilée.</h2>
             <p>
-                De l’invisibilité numérique au manque d’ergonomie : téléchargez notre rapport compilé pour identifier et corriger les angles morts de votre club.
+                De l’invisibilité numérique au manque d’ergonomie : téléchargez notre rapport compilé pour identifier et
+                corriger les angles morts de votre club.
             </p>
-            <a href="#" class="hero-button">
+            <a href="#download" class="hero-button">
                 Consulter l’étude !
             </a>
         </div>
@@ -26,7 +29,7 @@
 
     <section class="cta-section">
         <div class="cta-container">
-            <a href="#" class="hero-button hero-button-large cta-button">
+            <a href="#download" class="hero-button hero-button-large cta-button">
                 Accéder à l’étude gratuite !
             </a>
         </div>
@@ -39,7 +42,7 @@
 
         <div class="stats-grid">
             <article class="stat-card">
-                <img src="Statistique/stat1.png" alt="82% des clubs sont présents en ligne" class="stat-image">
+                <img src="Statistique/stat1.svg" alt="82% des clubs sont présents en ligne" class="stat-image">
                 <div class="stat-text">
                     <div class="stat-number">82<span class="stat-unit">%</span></div>
                     <div class="stat-label">des clubs sont présents en ligne</div>
@@ -47,7 +50,8 @@
             </article>
 
             <article class="stat-card">
-                <img src="Statistique/stat2.png" alt="71% utilisent le digital uniquement pour les matchs" class="stat-image">
+                <img src="Statistique/stat2.svg" alt="71% utilisent le digital uniquement pour les matchs"
+                    class="stat-image">
                 <div class="stat-text">
                     <div class="stat-number">71<span class="stat-unit">%</span></div>
                     <div class="stat-label">utilisent le digital uniquement pour les matchs</div>
@@ -55,7 +59,7 @@
             </article>
 
             <article class="stat-card">
-                <img src="Statistique/stat3.png" alt="86% ne mesurent pas leur performance digitale" class="stat-image">
+                <img src="Statistique/stat3.svg" alt="86% ne mesurent pas leur performance digitale" class="stat-image">
                 <div class="stat-text">
                     <div class="stat-number">86<span class="stat-unit">%</span></div>
                     <div class="stat-label">ne mesurent pas leur performance digitale</div>
@@ -63,7 +67,8 @@
             </article>
 
             <article class="stat-card">
-                <img src="Statistique/stat4.png" alt="×3 d’engagement pour les clubs les plus actifs" class="stat-image">
+                <img src="Statistique/stat4.svg" alt="×3 d’engagement pour les clubs les plus actifs"
+                    class="stat-image">
                 <div class="stat-text">
                     <div class="stat-number">×3</div>
                     <div class="stat-label">fois plus d’engagement pour les clubs les plus actifs</div>
@@ -71,19 +76,90 @@
             </article>
         </div>
         <div class="stats-footer">
-            <a href="#" class="stats-link">En savoir plus</a>
+            <a href="#download" class="stats-link">En savoir plus</a>
         </div>
     </section>
 
-    <section>
-        <h1>Club</h1>
+    <section class="clubs-section" id="clubs">
+        <div class="clubs-header">
+            <div class="clubs-title-wrap">
+                <h2 class="clubs-title">Clubs</h2>
+                <div class="clubs-count"><span data-bind-global="count"></span> clubs analysés</div>
+            </div>
+        </div>
+
+        <!-- Liste des clubs rendue automatiquement (ID requis) -->
+        <section id="teamList"></section>
+
+        <div class="clubs-footer">
+            <a href="#download" class="clubs-cta">Accéder à l'analyse</a>
+        </div>
     </section>
 
-    <!-- data-bind-global="count" : Affiche le nombre total de rapports (métadonnées globales) -->
-    <h1 data-bind-global="count" style="display:none;"></h1>
 
-    <section id="teamList"></section>
-    <div id="messageContainer"></div>
-    <form id="downloadForm"></form>
+    <section id="download" class="download-section">
+        <form id="downloadForm" class="download-form" novalidate>
+            <div class="download-card">
+
+                <div class="field">
+                    <label for="firstName">Prénom</label>
+                    <input id="firstName" name="firstName" type="text" autocomplete="given-name" required>
+                </div>
+
+                <div class="field">
+                    <label for="lastName">Nom</label>
+                    <input id="lastName" name="lastName" type="text" autocomplete="family-name" required>
+                </div>
+
+                <div class="field">
+                    <label for="email">Adresse email</label>
+                    <input id="email" name="email" type="email" autocomplete="email" required>
+                </div>
+
+                <div class="field checkbox-field">
+                    <input id="newsletter" name="newsletterAgreement" type="checkbox" required>
+                    <label for="newsletter">J’accepte de recevoir la newsletter</label>
+                </div>
+
+                <button class="download-btn" type="submit">Télécharger le rapport</button>
+
+                <!-- Message affiché SOUS le bouton -->
+                <div id="messageContainer"></div>
+
+            </div>
+        </form>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p>
+                    <strong>Tél :</strong>
+                    <a href="tel:+41245577600">+41 (0) 24 557 76 00</a>
+                </p>
+
+                <p>
+                    <strong>Mail :</strong>
+                    <a href="mailto:camposcruzdiogo@gmail.com">camposcruzdiogo@gmail.com</a>
+                </p>
+
+                <p>
+                    <strong>Adresse :</strong><br>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Avenue+des+Sports+20+1401+Yverdon-les-Bains" target="_blank" rel="noopener noreferrer">
+                        Avenue des Sports 20<br>
+                        CH-1401 Yverdon-les-Bains
+                    </a>
+                </p>
+            </div>
+
+            <div class="footer-right">
+                <a href="https://heig-vd.ch/a-propos/heig-vd">Compagnie</a>
+                <a href="https://heig-vd.ch/innovation/pepiniere-de-start-up">Partenaire</a>
+                <a href="https://heig-vd.ch/a-propos/emploi">Carrière</a>
+            </div>
+        </div>
+    </footer>
+
 </body>
+
 </html>
