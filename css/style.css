@@ -124,9 +124,19 @@ img {
   filter: saturate(1.05);
 }
 
-/* pause au hover */
-.logos-carousel-inner:hover .logos-track {
-  animation-play-state: paused;
+/* Pause au hover uniquement sur appareils avec vrai hover (desktop / trackpad)
+   -> évite le "hover collé" au tap sur mobile */
+@media (hover: hover) and (pointer: fine) {
+  .logos-carousel-inner:hover .logos-track {
+    animation-play-state: paused;
+  }
+}
+
+/* Sur mobile / tactile: ne jamais mettre en pause au tap */
+@media (hover: none) {
+  .logos-carousel-inner:hover .logos-track {
+    animation-play-state: running;
+  }
 }
 
 /* animation infinie: la liste est dupliquée (28 + 28),
