@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
 /* Base */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
 }
@@ -60,10 +64,10 @@ img {
 
 .hero-button {
   display: inline-block;
-  padding: 0.9rem 1.8rem;
+  padding: 2rem 4.2rem;
   background-color: #0b2a8f;
   color: #ffffff;
-  font-size: 1rem;
+  font-size: 1.6rem;
   font-weight: 600;
   border-radius: 999px;
   text-decoration: none;
@@ -73,6 +77,99 @@ img {
 .hero-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================
+   LOGOS CAROUSEL
+   ========================= */
+.logos-carousel {
+  width: 100%;
+  padding: 22px 0 10px;
+  background: linear-gradient(180deg,
+    rgba(255, 107, 107, 0.25) 0%,
+    rgba(240, 124, 124, 0.15) 35%,
+    rgba(122, 141, 184, 0.12) 65%,
+    rgba(47, 143, 211, 0.18) 100%
+  );
+}
+
+.logos-carousel-inner {
+  position: relative;
+  overflow: hidden;
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.10);
+}
+
+.logos-track {
+  display: flex;
+  align-items: center;
+  gap: 44px;
+  padding: 18px 34px;
+  width: max-content;
+  animation: logos-scroll 36s linear infinite;
+  will-change: transform;
+}
+
+.logos-track img {
+  height: 44px;
+  width: auto;
+  display: block;
+  opacity: 0.95;
+  filter: saturate(1.05);
+}
+
+/* pause au hover */
+.logos-carousel-inner:hover .logos-track {
+  animation-play-state: paused;
+}
+
+/* animation infinie: la liste est dupliquée (28 + 28),
+   donc on défile d'environ 50% */
+@keyframes logos-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Fade sur les côtés */
+.logos-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 78px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.logos-fade-left {
+  left: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.90), rgba(255, 255, 255, 0));
+}
+
+.logos-fade-right {
+  right: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.90), rgba(255, 255, 255, 0));
+}
+
+/* Accessibilité: réduit les animations si demandé */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .logos-track {
+    animation: none;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
 }
 
 /* =========================
@@ -333,7 +430,12 @@ img {
 }
 
 .download-form input[type="text"]:focus,
-.download-form input[type="email"]:focus {
+.download-form input[type="email"]:focus,
+.download-form input[type="checkbox"]:focus {
+  outline: none;
+}
+
+.download-form input:focus {
   box-shadow: inset 0 0 0 2px rgba(0, 57, 166, 0.35);
 }
 
@@ -435,14 +537,12 @@ img {
   line-height: 1.35;
 }
 
-#messageContainer .message.success,
 #messageContainer .success {
   background: rgba(34, 197, 94, 0.15);
   border-color: rgba(34, 197, 94, 0.35);
   color: #0b3b1b;
 }
 
-#messageContainer .message.error,
 #messageContainer .error {
   background: rgba(239, 68, 68, 0.14);
   border-color: rgba(239, 68, 68, 0.35);
@@ -497,25 +597,6 @@ img {
   text-decoration: underline;
 }
 
-@media (max-width: 900px) {
-  .site-footer {
-    padding: 50px 22px;
-  }
-
-  .footer-container {
-    flex-direction: column;
-    gap: 34px;
-  }
-
-  .footer-right a {
-    font-size: 22px;
-  }
-
-  .footer-left p {
-    font-size: 20px;
-  }
-}
-
 /* =========================
    RESPONSIVE (mobile ~375px)
    ========================= */
@@ -546,6 +627,8 @@ img {
   .hero-button {
     width: 100%;
     text-align: center;
+    padding: 1.2rem 1.6rem;
+    font-size: 1.2rem;
   }
 
   /* Stats */
@@ -671,6 +754,30 @@ img {
   .footer-right a {
     font-size: 20px;
   }
+
+  /* Logos carousel */
+  .logos-carousel {
+    padding: 16px 0 6px;
+  }
+
+  .logos-carousel-inner {
+    width: calc(100% - 24px);
+    border-radius: 20px;
+  }
+
+  .logos-track {
+    gap: 26px;
+    padding: 14px 18px;
+    animation-duration: 24s;
+  }
+
+  .logos-track img {
+    height: 34px;
+  }
+
+  .logos-fade {
+    width: 46px;
+  }
 }
 
 /* Tablet-ish: make grids adapt before mobile */
@@ -682,6 +789,48 @@ img {
   #teamList {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+
+  /* Logos carousel (tablet / small laptop) */
+  .logos-carousel {
+    padding: 18px 0 8px;
+  }
+
+  .logos-carousel-inner {
+    width: min(980px, calc(100% - 28px));
+    border-radius: 22px;
+  }
+
+  .logos-track {
+    gap: 34px;
+    padding: 16px 24px;
+    animation-duration: 30s;
+  }
+
+  .logos-track img {
+    height: 40px;
+  }
+
+  .logos-fade {
+    width: 62px;
+  }
+
+  /* Footer */
+  .site-footer {
+    padding: 50px 22px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 34px;
+  }
+
+  .footer-right a {
+    font-size: 22px;
+  }
+
+  .footer-left p {
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -691,5 +840,29 @@ img {
 
   #teamList {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Logos carousel (small devices) */
+  .logos-carousel {
+    padding: 16px 0 6px;
+  }
+
+  .logos-carousel-inner {
+    width: calc(100% - 24px);
+    border-radius: 20px;
+  }
+
+  .logos-track {
+    gap: 28px;
+    padding: 14px 18px;
+    animation-duration: 26s;
+  }
+
+  .logos-track img {
+    height: 36px;
+  }
+
+  .logos-fade {
+    width: 48px;
   }
 }
